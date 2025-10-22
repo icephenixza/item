@@ -10,12 +10,7 @@
 
     <title>ระบบงานผัสดุ</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <?php include 'include.php'; ?>
 </head>
 
 <body id="page-top">
@@ -368,7 +363,112 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <!-- Recent Materials Receipts Table -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">รายการรับวัสดุล่าสุด</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <input type="text" id="searchReceipts" class="form-control" placeholder="ค้นหารายการรับวัสดุ...">
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="receiptsTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>วันที่</th>
+                                                    <th>รายการ</th>
+                                                    <th>จำนวน</th>
+                                                    <th>ราคา</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="receiptsTableBody">
+                                                <!-- Data will be loaded via AJAX -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <!-- Recent Materials Withdrawals Table -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-success">รายการเบิกวัสดุล่าสุด</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <input type="text" id="searchWithdrawals" class="form-control" placeholder="ค้นหารายการเบิกวัสดุ...">
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="withdrawalsTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>วันที่</th>
+                                                    <th>รายการ</th>
+                                                    <th>จำนวน</th>
+                                                    <th>ผู้เบิก</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="withdrawalsTableBody">
+                                                <!-- Data will be loaded via AJAX -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+<script>
+$(document).ready(function() {
+    // Load initial data
+    loadReceipts();
+    loadWithdrawals();
+
+    // Search functionality for receipts
+    $('#searchReceipts').on('keyup', function() {
+        const searchTerm = $(this).val();
+        loadReceipts(searchTerm);
+    });
+
+    // Search functionality for withdrawals
+    $('#searchWithdrawals').on('keyup', function() {
+        const searchTerm = $(this).val();
+        loadWithdrawals(searchTerm);
+    });
+
+    function loadReceipts(search = '') {
+        $.ajax({
+            url: 'ajax/get_receipts.php',
+            type: 'POST',
+            data: { search: search },
+            success: function(response) {
+                $('#receiptsTableBody').html(response);
+            },
+            error: function() {
+                $('#receiptsTableBody').html('<tr><td colspan="4" class="text-center">เกิดข้อผิดพลาดในการโหลดข้อมูล</td></tr>');
+            }
+        });
+    }
+
+    function loadWithdrawals(search = '') {
+        $.ajax({
+            url: 'ajax/get_withdrawals.php',
+            type: 'POST',
+            data: { search: search },
+            success: function(response) {
+                $('#withdrawalsTableBody').html(response);
+            },
+            error: function() {
+                $('#withdrawalsTableBody').html('<tr><td colspan="4" class="text-center">เกิดข้อผิดพลาดในการโหลดข้อมูล</td></tr>');
+            }
+        });
+    }
+});
+</script>
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
             </div>

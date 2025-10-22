@@ -7,21 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    
     <title>ระบบงานผัสดุ</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <?php include 'include.php'; ?>
 </head>
 
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
-        <?php include 'sidebar.php'; ?>
+        <?php include 'app/sidebar.php'; ?>
         
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -35,23 +30,23 @@
                     </button>
                     
                     <!-- Topbar Search -->
-                    <?php include 'searchfull.php'; ?>
+                    <?php include 'app/searchfull.php'; ?>
                     
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <?php include 'searchmini.php'; ?>
+                        <?php include 'app/searchmini.php'; ?>
                         
                         <!-- Nav Item - Alerts -->
-                        <?php include 'alert.php'; ?>
+                        <?php include 'app/alert.php'; ?>
                         
                         <!-- Nav Item - Messages -->
-                        <?php include 'message.php'; ?>
+                        <?php include 'app/message.php'; ?>
                         
                         <div class="topbar-divider d-none d-sm-block"></div>
                         
                         <!-- Nav Item - User Information -->
-                        <?php include 'userinfo.php'; ?>
+                        <?php include 'app/userinfo.php'; ?>
                     </ul>
                 </nav>
                 <!-- End of Topbar -->
