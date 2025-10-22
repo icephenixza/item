@@ -16,7 +16,7 @@
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
-        <?php include 'sidebar.php'; ?>
+        <?php include 'app/sidebar.php'; ?>
         
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -30,23 +30,23 @@
                     </button>
                     
                     <!-- Topbar Search -->
-                    <?php include 'searchfull.php'; ?>
+                    <?php include 'app/searchfull.php'; ?>
                     
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <?php include 'searchmini.php'; ?>
+                        <?php include 'app/searchmini.php'; ?>
                         
                         <!-- Nav Item - Alerts -->
-                        <?php include 'alert.php'; ?>
+                        <?php include 'app/alert.php'; ?>
                         
                         <!-- Nav Item - Messages -->
-                        <?php include 'message.php'; ?>
+                        <?php include 'app/message.php'; ?>
                         
                         <div class="topbar-divider d-none d-sm-block"></div>
                         
                         <!-- Nav Item - User Information -->
-                        <?php include 'userinfo.php'; ?>
+                        <?php include 'app/userinfo.php'; ?>
                     </ul>
                 </nav>
                 <!-- End of Topbar -->

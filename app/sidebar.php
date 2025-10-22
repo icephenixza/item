@@ -40,6 +40,7 @@
                         <h6 class="collapse-header">จัดการวัสดุ:</h6>
                         <a class="collapse-item" href="input.php">รับวัสดุ</a>
                         <a class="collapse-item" href="output.php">เบิกวัสดุ</a>
+                        <a class="collapse-item" href="supplier.php">ผู้จำหน่าย</a>
                     </div>
                 </div>
             </li>
